@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 400;
+    list-style: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+h1{
+    color: white;
+    margin-bottom: 1rem;
+}
+.hero ul li{
+    color: rgb(163, 163, 163);
+}
+p{
+    color: white;
+}
+header{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    padding-left: 5vw;
+    z-index: 100;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* border: 1px solid green; */
+    height: 100%; /* 브라우저 전체높이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* 클릭시 뒷배경이 생기지 않은 */
+    z-index: 99;
+    opacity: 0;
+    transition: 1s;
+}
+.menu ul{
+    /* border: 1px solid red; */
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    transition: .5s;
+}
+.toggle{
+    cursor: pointer;
+    z-index: 100;
+    color: white;
+}
+main{
+    position: relative;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid yellow; */
+}
+.pixel__wrapper{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* flex-wrap: wrap;
+    justify-content: flex-start; */
+    overflow: hidden;
+    pointer-events: none; /* 자바스크립트로 무슨 이벤트 적용안함. 단지 디자인을 위한 요소 */
+    z-index: 10;
+    transition: 2s;
+}
+.pixel_column{
+    display: flex;
+    flex-direction: column;
+}
+.pixel{
+    transition: .5s;
+}
+.active{
+    background-color: #000;
+}
+.square{
+    position: absolute; /* square 의 부모는 position: static 이 아닌 main */
+    bottom: 100px;
+    right: 5vw; /* 디바이스 너비에 따라 크기가 변함 */
+    width: 15vw;
+    height: 15vw;
+    /* border: 1px solid blue; */
+    background-color: white;
+    animation: flash 3s infinite ease-in-out;
+}
+.hero{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 5vw;
+}
+.intro{
+   margin-top: 2rem; 
+   width: 30vw;
+}
+
+@media screen and (max-width: 800px){
+    .intro{
+        width: 80vw;
+    }
+}
+@keyframes flash {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
